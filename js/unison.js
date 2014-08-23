@@ -81,10 +81,16 @@ Unison = (function() {
   };
 
   win.onresize = util.debounce(breakpoints.update, 100);
-  doc.addEventListener('DOMContentLoaded', function(){
-    unisonReady = win.getComputedStyle(head, null).getPropertyValue('clear') !== 'none';
-    breakpoints.update();
-  });
+
+  if (document.readyState == "complete" || document.readyState == "loaded" || document.readyState == "interactive") {
+     unisonReady = win.getComputedStyle(head, null).getPropertyValue('clear') !== 'none';
+     breakpoints.update();
+  } else {
+    doc.addEventListener('DOMContentLoaded', function(){
+      unisonReady = win.getComputedStyle(head, null).getPropertyValue('clear') !== 'none';
+      breakpoints.update();
+    });
+  }
 
   return {
     fetch : {
