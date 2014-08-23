@@ -1,14 +1,14 @@
 // config
-$debug: true;
+$debug: true !default;
 
 // declare breakpoints
-$usn-x-small         : 200px;
-$usn-small           : 400px;
-$usn-small-medium    : 600px;
-$usn-medium          : 800px;
-$usn-large-medium    : 1000px;
-$usn-large           : 1200px;
-$usn-x-large         : 1400px;
+$usn-x-small         : 200px !default;
+$usn-small           : 400px !default;
+$usn-small-medium    : 600px !default;
+$usn-medium          : 800px !default;
+$usn-large-medium    : 1000px !default;
+$usn-large           : 1200px !default;
+$usn-x-large         : 1400px !default;
 
 // create sass list to pass media query data
 // if a breakpoint name changes, remember to
@@ -21,7 +21,7 @@ $mq-sync:
   usn-large-medium   $usn-large-medium,
   usn-large          $usn-large,
   usn-x-large        $usn-x-large
-;
+ !default;
 
 // build each media query for js ingestion
 @each $mq in $mq-sync {
